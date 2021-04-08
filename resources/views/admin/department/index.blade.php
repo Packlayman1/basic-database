@@ -9,9 +9,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
+                    @if(session("success"))
+                    <div class="alert alert-success">{{session("success")}}</div >
+                    @endif
                     <div class="card">
                         <div class="card-header">
-                            ตารางข้อมูลแบบฟอร์ม
+                            ตารางข้อมูลแผนก
                         </div>
                     </div>
                 </div>
@@ -24,7 +27,7 @@
                             <form action="{{ route('addDepartment') }}" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="department_name">ชื่อตำเเหน่งงาน</label>
+                                    <label for="department_name">ชื่อแผนก</label>
                                     <input type="text" class="form-control" name="department_name">
                                 </div>
                                 @error('department_name')
