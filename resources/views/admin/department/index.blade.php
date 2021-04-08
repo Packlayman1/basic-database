@@ -32,7 +32,14 @@
                                         <th scope="row">{{$i++}}</th>
                                         <td>{{$row->department_name}}</td>
                                         <td>{{$row->user_id}}</td>
-                                        <td>{{Carbon\Carbon::parse($row->created_at)->diffForHumans()}}</td>
+                                        <td>
+                                            @if($row->created_at == NULL)
+                                            -
+                                             @else
+                                             {{Carbon\Carbon::parse($row->created_at)->diffForHumans()}}
+                                             @endif
+                                            {{-- {{Carbon\Carbon::parse($row->created_at)->diffForHumans()}} --}}
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
