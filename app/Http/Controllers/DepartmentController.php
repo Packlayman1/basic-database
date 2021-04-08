@@ -21,6 +21,7 @@ class DepartmentController extends Controller
         ],
     ['department_name.required'=>"กรุณาป้อนชื่อแผนกด้วยครับ",
     'department_name.max'=>"ห้ามป้อนเกิน 255 ตัวอักษร",
+    'department_name.unique'=>"มีข้อมูลชื่อแผนกนี้อยู่เเล้ว",
     ]
     );
 
