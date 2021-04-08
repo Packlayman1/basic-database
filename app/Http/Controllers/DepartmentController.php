@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\DB;
 class DepartmentController extends Controller
 {
     public function index(){
-        return view('admin.department.index');
+       $departments = Department::all();
+        return view('admin.department.index',compact('departments'));
     }
 
     //post
