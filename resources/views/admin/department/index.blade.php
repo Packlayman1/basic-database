@@ -16,61 +16,31 @@
                         <div class="card-header">
                             ตารางข้อมูลแผนก
                         </div>
-                        {{-- <table class="table table-striped table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col">ลำดับ</th>
-                                     <th scope="col">ชื่อแผนก</th>
-                                    <th scope="col">UserID</th>
-                                    <th scope="col">created at</th> -
-                                </tr>
-                            </thead>
-                            <tbody >
-                                @foreach ($departments as $row)
-                                    <tr>
-                                        <th>{{$departments->firstItem()+$loop->index}}<th>
-                                         <td>{{$row->department_name}}</td>
-                                        <td>{{$row->user_id}}</td>
-                                        <td>
-                                            @if($row->created_at == NULL)
-                                            -
-                                             @else
-                                             {{Carbon\Carbon::parse($row->created_at)->diffForHumans()}}
-                                             @endif
-                                        </td> 
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table> --}}
-
-
+  
                         <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
                                     <th scope="col">ลำดับ</th>
                                     <th scope="col">ชื่อแผนก</th>
-                                    <th scope="col">UserID</th>
+                                    <th scope="col">พนังงาน</th>
                                     <th scope="col">created at</th>
                                 </tr>
                             </thead>
                             <tbody >
                                 @foreach ($departments as $row)
                                     <tr>
-                                        {{-- <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td> --}}
-
-                                         <th>{{$departments->firstItem()+$loop->index}}<th> 
-                                         <td>{{$row->department_name}}</td>
-                                         <td>{{$row->user_id}}</td>
-                                           <td>
-                                               @if($row->created_at == NULL)
-                                                  -
-                                                @else
-                                                {{Carbon\Carbon::parse($row->created_at)->diffForHumans()}}
-                                                @endif
-                                           </td>  
+                                         <td>
+                                            {{$departments->firstItem()+$loop->index}}
+                                         </td>
+                                        <td>{{$row->department_name}}</td>
+                                        <td>{{$row->user->name}}</td>
+                                        <td>
+                                            @if($row->created_at == NULL)
+                                            -
+                                          @else
+                                          {{Carbon\Carbon::parse($row->created_at)->diffForHumans()}}
+                                          @endif
+                                        </td> 
                                     </tr>
                                 @endforeach
                             </tbody>
