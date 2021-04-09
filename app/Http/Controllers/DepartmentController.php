@@ -10,10 +10,14 @@ use Illuminate\Support\Facades\DB;
 class DepartmentController extends Controller
 {
     public function index(){
-        $departments = Department::paginate(3);
-        // $departments = DB::table('departments')->paginate(3);
+        // $departments = Department::paginate(3);
+        //$departments = DB::table('departments')->paginate(3);
         // $departments = Department::all();
         // $departments = DB::table('departments')->get();
+
+        $departments = DB::table('departments')
+        ->join('users','departments.user_id','users.id')    
+        ->select('departments.*','users.name')->paginate(5);
         return view('admin.department.index',compact('departments'));
     }
 

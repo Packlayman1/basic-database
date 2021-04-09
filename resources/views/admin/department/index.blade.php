@@ -33,7 +33,7 @@
                                             {{$departments->firstItem()+$loop->index}}
                                          </td>
                                         <td>{{$row->department_name}}</td>
-                                        <td>{{$row->user->name}}</td>
+                                        <td>{{$row->name}}</td>
                                         <td>
                                             @if($row->created_at == NULL)
                                             -
