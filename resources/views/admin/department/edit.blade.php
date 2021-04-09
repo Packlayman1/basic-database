@@ -14,7 +14,7 @@
                             แบบฟอร์มเเก้ไขข้อมูล
                         </div>
                         <div class="card-body">
-                            <form action="" method="post">
+                            <form action="{{url('/department/update/'.$departments->id)}}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label for="department_name">ชื่อแผนก</label>
