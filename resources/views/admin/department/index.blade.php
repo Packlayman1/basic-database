@@ -24,6 +24,7 @@
                                     <th scope="col">ชื่อแผนก</th>
                                     <th scope="col">พนังงาน</th>
                                     <th scope="col">created at</th>
+                                    <th scope="col">Edit</th>
                                 </tr>
                             </thead>
                             <tbody >
@@ -41,6 +42,9 @@
                                           {{Carbon\Carbon::parse($row->created_at)->diffForHumans()}}
                                           @endif
                                         </td> 
+                                        <td>
+                                            <a href="{{url('department/edit/'.$row->id)}}" class="btn btn-primary">แก้ไข</a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

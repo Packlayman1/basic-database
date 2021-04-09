@@ -49,4 +49,10 @@ class DepartmentController extends Controller
     DB::table('departments')->insert($data);
     return redirect()->back()->with('success',"บันทึกข้อมูลเรียบร้อย");
     }
+
+    public function edit($id){
+        // dd($id);
+       $department = Department::find($id);
+       dd($department->department_name);
+    }
 }
