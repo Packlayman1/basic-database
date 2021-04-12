@@ -20,6 +20,10 @@
                     <x-jet-nav-link href="{{ route('department') }}">
                         Department
                     </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('department') }}">
+                        Services
+                    </x-jet-nav-link>
                 </div>
             </div>
 
