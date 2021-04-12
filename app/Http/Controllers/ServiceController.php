@@ -30,10 +30,17 @@ class ServiceController extends Controller
                 'service_image.required' => "กรุณาใส่ภาพประกอบด้วยครับ",
             ]
         );
-        // $data = array();
-        // $data["service_name"] = $request->service_name;
-        // $data["user_id"] = Auth::user()->id;
-        // DB::table('departments')->insert($data);
-        // return redirect()->back()->with('success', "บันทึกข้อมูลเรียบร้อย");
+
+
+        //การเข้ารหัสรูปภาพ
+        $service_image = $request->file('service_image');
+        //Generate ชื่อภาพ
+        $name_gen = hexdec(uniqid());
+      
+        //ดึงนามสกุลไฟล์ภาพ
+        $img_ext = strtolower($service_image->getClientOriginalExtension());
+
+        $img_name = $name_gen.'.'.$img_ext;
+        dd($img_name);
     }
 }
