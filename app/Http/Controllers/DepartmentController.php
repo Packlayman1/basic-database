@@ -16,8 +16,8 @@ class DepartmentController extends Controller
         // $departments = Department::all();
         // $departments = DB::table('departments')->get();
 
-         $departments = Department::paginate(2);
-         $trashDepartments = Department::onlyTrashed()->paginate(2);
+         $departments = Department::paginate(5);
+         $trashDepartments = Department::onlyTrashed()->paginate(3);
          return view('admin.department.index', compact('departments','trashDepartments'));
 
         // $departments = DB::table('departments')
@@ -93,5 +93,11 @@ class DepartmentController extends Controller
     {
      $delete = Department::find($id)->delete();  
      return redirect()->back()->with('success', "ลบข้อมูลเรียบร้อย");
+    }
+
+    public function restore($id)
+    {
+     $restore = Department::withTrashed()->find($id)->restore();  
+     return redirect()->back()->with('success', "กู้คืนข้อมูลเรียบร้อย");
     }
 }

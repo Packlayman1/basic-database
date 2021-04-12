@@ -88,7 +88,7 @@
                                           @endif
                                         </td> 
                                         <td>
-                                            <a href="{{url('department/edit/'.$row->id)}}" class="btn btn-primary">กู้คืนข้อมูล</a>
+                                            <a href="{{url('department/restore/'.$row->id)}}" class="btn btn-primary">กู้คืนข้อมูล</a>
                                         </td>
                                         <td>
                                             <a href="{{url('department/softdelete/'.$row->id)}}" class="btn btn-danger">ลบข้อมูลถาวร</a>
