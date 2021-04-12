@@ -16,8 +16,9 @@ class DepartmentController extends Controller
         // $departments = Department::all();
         // $departments = DB::table('departments')->get();
 
-         $departments = Department::paginate(5);
-         return view('admin.department.index', compact('departments'));
+         $departments = Department::paginate(2);
+         $trashDepartments = Department::onlyTrashed()->paginate(2);
+         return view('admin.department.index', compact('departments','trashDepartments'));
 
         // $departments = DB::table('departments')
         //     ->join('users', 'departments.user_id', 'users.id')
